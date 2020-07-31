@@ -6,9 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#317EFB">
   <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
-
+  <!-- bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <!-- local css -->
+  <link rel="stylesheet" href="./assets/styles.css">
+  <!-- load manifest -->
+  <link rel="manifest" href="/manifest.json">
 
   <title>Budget Tracker</title>
 </head>
@@ -42,6 +45,27 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="index.js"></script>
+  <script src="./assets/index.js"></script>
+
+  <!-- offline iDB functions -->
+  <script src="./assets/db.js"></script>
+
+  <!-- start service worker script -->
+  <script>
+    async function initApp() {
+      if (!navigator.serviceWorker) {
+        console.log(`No Service Worker Running --> exiting`)
+        return
+      }
+
+      // REGISTER service worker
+      navigator.serviceWorker.register("./assets/service-worker.js")
+    }
+
+    // run after page is loaded
+    window.addEventListener( 'load', initApp )
+
+  </script>
+
 </body>
 </html>
