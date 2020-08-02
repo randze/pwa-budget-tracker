@@ -11,7 +11,7 @@
   <!-- local css -->
   <link rel="stylesheet" href="./assets/styles.css">
   <!-- load manifest -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.webmanifest">
 
   <title>Budget Tracker</title>
 </head>
@@ -59,7 +59,7 @@
       }
 
       // REGISTER service worker
-      navigator.serviceWorker.register("./assets/service-worker.js")
+      navigator.serviceWorker.register("./service-worker.js")
     }
 
     // run after page is loaded
